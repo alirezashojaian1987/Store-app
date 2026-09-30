@@ -1,0 +1,42 @@
+//colors
+$primary: rgb(17,214,99);
+$primary-dark: rgb(13,168,78); //hover / active
+$primary-darker: rgb(9,122,56); //pressed
+$primary-light: rgb(110,235,165); //highlights, focus rings
+$primary-subtle: rgb(230, 250, 238); // tinted backgrounds (badges, hovers)
+
+$white:#ffffff;
+$black:#0b0f0d;
+
+$bg: #f7f8f8;  // page background
+$surface: #ffffff;  // cards, panels, header
+$surface-alt: #f0f2f1;  // subtle sections, table rows
+
+$text: #1a1d1b;  // main text
+$text-muted: #6b7370;  // secondary text, captions
+$text-inverse: #ffffff;  // text on dark/primary backgrounds
+
+$border: #e2e5e3;  // default border
+$border-strong: #c9cecb;  // inputs, dividers with more contrast
+
+$success: rgb(17, 214, 99);
+$warning: rgb(240, 173, 30);
+$danger: rgb(224, 66, 66);
+$info: rgb(56, 132, 255);
+
+$focus-ring: rgba(17, 214, 99, 0.35);
+
+//Fonts
+$font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: $font-family-base;
+    background-color: $bg;
+    min-height: 100vh;
+}
