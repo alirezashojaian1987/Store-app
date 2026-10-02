@@ -4,11 +4,12 @@ import ShopPage from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import CartPage from "../pages/Cart";
 import CategoryPage from "../pages/Category";
-import NotFoundPage from "../pages/Error";
+import Error from "../pages/Error";
 
 export const router=createBrowserRouter([
     {
         element:<RootLayout/>,
+        errorElement:<Error/>,
         children:[
             {
                 index:true,
@@ -29,11 +30,6 @@ export const router=createBrowserRouter([
                 path:'/category/:category',
                 element:<CategoryPage/>,
             },
-
-            {
-                path:'/Error',
-                element:<NotFoundPage/>,
-            },
         ]
-    }
+    },
 ])

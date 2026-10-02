@@ -1,0 +1,49 @@
+@use "../../styles/variables.scss" as *;
+
+.error_page{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:20px;
+
+    .error_code{
+        font-size: clamp(7rem, 20vw, 12rem);
+        font-weight: 800;
+        line-height: 1;
+
+        color: $danger;
+
+        margin-bottom: 20px;
+    }
+
+    h1{
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    p{
+        max-width: 450px;
+        color: $text-muted;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .homeBtn{
+        display: inline-block;
+        padding:12px 24px;
+        background-color:$danger;
+        color:$white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 8px;
+        transition:background-color 0.2s ease, transform 0.2s ease;
+
+        &:hover{
+            background-color: #ed5858;
+            transform: translateY(-2px);
+        }
+    }
+}
