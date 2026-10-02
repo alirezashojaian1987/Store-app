@@ -1,0 +1,74 @@
+@use "../../styles/variables.scss" as *;     
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+    
+    .skeleton{
+        aspect-ratio: 3 / 4;
+        background-color: $surface;
+        border: 1px solid $border;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+    
+        &::after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            animation: shimmer 1.4s infinite;
+        }
+    }
+}
+
+.state{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: $surface;
+    border: 1px solid $border;
+    border-radius: 12px;
+    
+    .stateMsg{
+        font-size: 0.95rem;
+        color: $text-muted;
+    }
+    
+    .retryBtn{
+        padding: 0.55rem 1rem;
+        border: none;
+        border-radius: 8px;
+        background-color: $primary;
+        color: $white;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    
+        &:hover { background-color: $primary-dark; }
+        &:active { background-color: $primary-darker; }
+    }
+}
+
+@keyframes shimmer {
+  0%{ transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
