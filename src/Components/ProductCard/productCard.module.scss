@@ -19,7 +19,7 @@
         }
     }
 
-    .imageLinK{
+    .imageLink{
         display: block;
 
         .imageWrapper{
@@ -39,7 +39,7 @@
                 padding:0.25rem 0.6rem;
                 font-size: 0.7rem;
                 font-weight: 600;
-                letter-spacing: 0.02rem;
+                letter-spacing: 0.02em;
                 text-transform: capitalize;
                 color:$primary-darker;
                 background-color: $primary-subtle;
@@ -132,7 +132,7 @@
                     background-color: $primary-dark;
                 }
 
-                &P:active{
+                &:active{
                     background-color: $primary-darker;
                 }
 
