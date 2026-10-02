@@ -51,11 +51,18 @@ export default function Header(){
     }
 
     return(
-        <header className={styles.header}>
+        <header className={styles.header} id="header">
             <div className={styles.inner}>
-                <NavLink to="/" className={styles.logo} onClick={closeAll}>
+                <button
+                    type="button"
+                    className={styles.logo}
+                    onClick={()=>{
+                        window.scrollTo({top:0, behavior:"smooth"})
+                    }}
+                    aria-label="Scroll to top"
+                >
                     <span>Fake</span>Store
-                </NavLink>
+                </button>
 
                 <nav className={styles.nav}>
                     <NavLink to='/' className={styles.link}>
