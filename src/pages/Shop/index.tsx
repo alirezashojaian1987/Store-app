@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react"
 import { getProducts } from "../../api/api"
 import { useDebounce } from "../../hooks/useDebounce"
 import type { Product } from "../../types/product"
-import ProductCard from "../../Components/ProductCard"
+import ProductGrid from "../../Components/ProductGrid"
 
 import styles from "./Shop.module.scss";
 import { Search } from "lucide-react"
@@ -66,38 +66,13 @@ export default function ShopPage(){
                     </div>
                 </header>
 
-                {loading && (
-                    <div className={styles.grid}>
-                        {Array.from({ length:8 }).map((_,i)=>(
-                            <div key={i} className={styles.skeleton}/>
-                        ))}
-                    </div>
-                )}
-
-                {!loading && error && (
-                    <div className={styles.state}>
-                        <p className={styles.stateMsg}>{error}</p>
-                        <button onClick={loadProducts} className={styles.retryBtn}>
-                            Try again
-                        </button>
-                    </div>
-                )}
-
-                {!loading && !error && filtered.length===0 && (
-                    <div className={styles.state}>
-                        <p className={styles.stateMsg}>
-                            No products match "{debouncedSearch}".
-                        </p>
-                    </div>
-                )}
-
-                {!loading && !error && filtered.length > 0 && (
-                    <div className={styles.grid}>
-                        {filtered.map((product)=>(
-                            <ProductCard key={product.id} product={product}/>
-                        ))}
-                    </div>
-                )}
+                <ProductGrid
+                    products={filtered}
+                    loading={loading}
+                    error={error}
+                    onRetry={loadProducts}
+                    emptyMessage={`No products match "${debouncedSearch}"`}
+                />
             </div>
         </section>
     )
