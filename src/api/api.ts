@@ -1,8 +1,16 @@
-const BASE_URL="https://fakestoreapi.com";
+import axios from "axios";
+import type { Product } from "../types/product";
 
-export async function getCategories(): Promise<string[]>{
-    const res=await fetch(`${BASE_URL}/products/categories`);
+const api=axios.create({
+    baseURL:"https://fakestoreapi.com",
+});
 
-    if(!res.ok) throw new Error("Failed to fetch categories");
-    return res.json();
+export async function getCategories():Promise<string[]>{
+    const { data } = await api.get<string[]>("/products/categories");
+    return data;
+}
+
+export async function getProducts():Promise<Product[]>{
+    const { data } = await api.get<Product[]>("/products");
+    return data;
 }
