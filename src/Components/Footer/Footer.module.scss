@@ -1,0 +1,91 @@
+@use '../../styles/variables' as *;
+
+.footer{
+    margin-top: 4rem;
+    background-color: $surface;
+    border-top: 1px solid $border;
+
+    .inner{
+        max-width: 1280px;
+        margin:0 auto;
+        padding:2.5rem 1.25rem 1.5rem;
+
+        .topsection{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap:1.5rem;
+            padding-bottom:1.75rem;
+
+            .brand{
+                display: flex;
+                flex-direction: column;
+                gap:0.4rem;
+                max-width: 320px;
+
+                .logo{
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    letter-spacing: -0.02em;
+                    color:rgb(62,62,60);
+
+                    span{
+                        color:$primary-dark;
+                    }
+                }
+
+                .tagline{
+                    font-size:0.85rem;
+                    color:$text-muted;
+                    line-height: 1.5;
+                }
+            }
+
+            .links{
+                display: flex;
+                align-items: center;
+                gap:1.25rem;
+                flex-wrap: wrap;
+
+                .link, .linkBtn{
+                    font-family: inherit;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    color:$text;
+                    text-decoration: none;
+                    background: none;
+                    border:none;
+                    padding:0;
+                    cursor: pointer;
+                    transition:color 0.2s ease;
+
+                    &:hover{
+                        color:$primary-dark;
+                    }
+
+                    &:focus-visible{
+                        outline:none;
+                        border-radius: 4px;
+                        box-shadow: 0 0 0 3px $focus-ring;
+                    }
+                }
+            }
+        }
+
+        .bottomsection{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap:0.5rem;
+            padding-top: 1.25rem;
+            border-top:1px solid $border;
+            font-size: 0.8rem;
+            color:$text-muted;
+
+            .credit{
+                color:$text-muted;
+            }
+        }
+    }
+}
