@@ -95,7 +95,7 @@ export default function Header(){
                                         <NavLink
                                             key={cat}
                                             to={`/category/${encodeURIComponent(cat)}`}
-                                            className={styles.dropdownItem}
+                                            className={({ isActive })=>`${styles.dropdownItem} ${isActive ? styles.active : ""}`}
                                             onClick={closeAll}
                                         >
                                             {cat}
@@ -145,7 +145,7 @@ export default function Header(){
                                 <NavLink
                                     key={cat}
                                     to={`/category/${encodeURIComponent(cat)}`}
-                                    className={styles.mobileLink}
+                                    className={({ isActive })=>`${styles.mobileLink} ${isActive ? styles.active : ""}`}
                                     onClick={closeAll}
                                 >
                                     {cat}

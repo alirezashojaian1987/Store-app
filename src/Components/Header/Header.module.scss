@@ -121,9 +121,13 @@
                         transition:background-color 0.2s ease, color 0.2s ease;
 
 
-                        &:hover{
+                        &:hover, &.active{
                             background-color: $primary-subtle;
                             color:$primary-dark;
+                        }
+
+                        &.active{
+                            font-weight: 600;
                         }
                     }
                 }
@@ -220,8 +224,12 @@
             text-transform: capitalize;
             transition: color 0.2s ease;
 
-            &:hover {
+            &:hover, &.active {
                 color: $primary-dark;
+            }
+
+            &.active{
+                font-weight: 600;
             }
         }
     }
