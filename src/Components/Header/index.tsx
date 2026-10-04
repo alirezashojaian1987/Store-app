@@ -16,6 +16,13 @@ export default function Header(){
 
     const dropdownRef=useRef<HTMLDivElement>(null);
 
+    function formatCategory(cat:string):string{
+        return cat
+            .replace(/^mens-/, "men's ")
+            .replace(/^womens-/, "women's ")
+            .replace(/-/g, ' ');
+    }
+
     useEffect(()=>{
         let cancelled=false;
 
@@ -95,10 +102,10 @@ export default function Header(){
                                         <NavLink
                                             key={cat}
                                             to={`/category/${encodeURIComponent(cat)}`}
-                                            className={styles.dropdownItem}
+                                            className={({ isActive })=>`${styles.dropdownItem} ${isActive ? styles.activeItem : ""}`}
                                             onClick={closeAll}
                                         >
-                                            {cat}
+                                            {formatCategory(cat)}
                                         </NavLink>
                                     ))
                                 }
@@ -145,10 +152,10 @@ export default function Header(){
                                 <NavLink
                                     key={cat}
                                     to={`/category/${encodeURIComponent(cat)}`}
-                                    className={styles.mobileLink}
+                                    className={({ isActive })=>`${styles.mobileLink} ${isActive ? styles.activeLink : ""}`}
                                     onClick={closeAll}
                                 >
-                                    {cat}
+                                    {formatCategory(cat)}
                                 </NavLink>
                             ))}
                     </div>

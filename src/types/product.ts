@@ -1,14 +1,21 @@
-export interface Rating{
-    rate:number;
-    count:number;
+export interface Review{
+    rating:number;
+    comment:string;
+    date:string;
+    reviewerName:string;
+    reviewerEmail:string;
 }
 
 export interface Product{
     id:number;
     title:string;
-    price:number;
     description:string;
     category:string;
-    image:string;
-    rating:Rating;
+    price:number;
+    rating:number;
+    stock:number;
+    brand?:string;
+    thumbnail:string;
+    images:string[];
+    reviews:Review[];
 }

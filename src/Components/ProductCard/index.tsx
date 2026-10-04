@@ -9,7 +9,7 @@ interface ProductCardProps{
 }
 
 export default function ProductCard({ product }: ProductCardProps){
-    const { id, title, price, category, image, rating }=product;
+    const { id, title, price, category, thumbnail, rating, reviews }=product;
 
     function handleAddToCart(){
         console.log("Add to cart:", {id,title,price});
@@ -21,7 +21,7 @@ export default function ProductCard({ product }: ProductCardProps){
                 <div className={styles.imageWrapper}>
                     <span className={styles.catBadge}>{category}</span>
                     <img
-                        src={image}
+                        src={thumbnail}
                         alt={title}
                         className={styles.image}
                         loading="lazy"
@@ -36,8 +36,8 @@ export default function ProductCard({ product }: ProductCardProps){
 
                 <div className={styles.rating}>
                     <Star size={14} className={styles.star}/>
-                    <span className={styles.ratingRate}>{rating.rate.toFixed(1)}</span>
-                    <span className={styles.ratingCount}>({rating.count})</span>
+                    <span className={styles.ratingRate}>{rating.toFixed(1)}</span>
+                    <span className={styles.ratingCount}>({reviews.length})</span>
                 </div>
 
                 <div className={styles.footer}>
