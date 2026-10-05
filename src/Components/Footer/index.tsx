@@ -39,7 +39,7 @@ export default function Footer(){
 
                 <div className={styles.bottomsection}>
                     <span>© {year} FakeStore</span>
-                    <span className={styles.credit}>Built with FakeStore API</span>
+                    <span className={styles.credit}>Built with <span className={styles.dummyjson}>Dummyjson</span> api</span>
                 </div>
             </div>
         </footer>
