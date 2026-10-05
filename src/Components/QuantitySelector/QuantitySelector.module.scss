@@ -1,0 +1,42 @@
+@use "../../styles/variables.scss" as *;
+
+.wrapper{
+    display: inline-flex;
+    align-items: center;
+    border:1px solid $border;
+    border-radius: 10px;
+    background-color: $surface;
+    overflow: hidden;
+
+    .btn{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width:42px;
+        height:46px;
+        border:none;
+        background: none;
+        color:$text;
+        cursor: pointer;
+        transition:background-color 0.2s ease, color 0.2s ease;
+
+        &:hover:not(:disabled){
+            background-color: $primary-subtle;
+            color:$primary-darker;
+        }
+
+        &:disabled{
+            color:$border-strong;
+            cursor:not-allowed;
+        }
+    }
+
+    .value{
+        min-width:42px;
+        padding:0 0.5rem;
+        text-align: center;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color:$text;
+    }
+}
