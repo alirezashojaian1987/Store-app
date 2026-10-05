@@ -21,7 +21,7 @@ export default function QuantitySelector({ value, onChange, min=1, max=99, }: Qu
                 <Minus size={16}/>
             </button>
 
-            <span className={styles.value} aria-label="polite">
+            <span className={styles.value} aria-live="polite">
                 {value}
             </span>
 
