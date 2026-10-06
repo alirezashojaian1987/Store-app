@@ -202,11 +202,22 @@
     }
 
     .mobileMenuInner{
-        min-height: 0;
-        overflow: hidden;
+        min-height:0;
+        max-height: calc(100dvh - 64px);
+        overflow-y: auto;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
-        padding: 0 1.25rem;
+        padding:0 1.25rem;
+
+        &::-webkit-scrollbar{
+            width:6px;
+        }
+
+        &::-webkit-scrollbar-thumb{
+            background: $border-strong;
+            border-radius: 3px;
+        }
     }
 }
 
