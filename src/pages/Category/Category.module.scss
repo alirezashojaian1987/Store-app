@@ -2,46 +2,46 @@
 
 .categoryPage{
     padding:2rem 0 4rem;
+}
 
-    .inner{
-        max-width: 1280px;
-        margin:0 auto;
-        padding:0 1.25rem;
+.inner{
+    max-width: 1280px;
+    margin:0 auto;
+    padding:0 1.25rem;
+}
 
-        .header{
-            display: flex;
-            flex-direction: column;
-            gap:0.35rem;
-            margin-bottom: 1.75rem;
+.header{
+    display: flex;
+    flex-direction: column;
+    gap:0.35rem;
+    margin-bottom: 1.75rem;
+}
 
-            .backBtn{
-                display: inline-flex;
-                align-items: center;
-                gap:0.2rem;
-                margin-bottom: 0.4rem;
-                font-size: 0.85rem;
-                font-weight: 500;
-                color:$text-muted;
-                text-decoration: none;
-                transition:color 0.2s ease;
+.backBtn{
+    display: inline-flex;
+    align-items: center;
+    gap:0.2rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color:$text-muted;
+    text-decoration: none;
+    transition:color 0.2s ease;
 
-                &:hover{
-                    color:$primary-dark;
-                }
-            }
-
-            .title{
-                font-size: 1.6rem;
-                font-weight: 700;
-                letter-spacing: -0.02em;
-                color: $text;
-                text-transform: capitalize;
-            }
-            
-            .subtitle{
-                font-size: 0.9rem;
-                color: $text-muted;
-            }
-        }
+    &:hover{
+        color:$primary-dark;
     }
+}
+
+.title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: $text;
+    text-transform: capitalize;
+}
+
+.subtitle{
+    font-size: 0.9rem;
+    color: $text-muted;
 }
