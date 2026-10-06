@@ -1,4 +1,4 @@
-@use '../../../styles/variables.scss';
+@use '../../../styles/variables.scss' as *;
 
 .card{
     flex:0 0 auto;
@@ -8,7 +8,7 @@
     flex-direction: column;
     gap:1rem;
     padding:1.25rem;
-    background-color: $surface;
+    background-color:$surface;
     border:1px solid $border;
     border-radius: 12px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;

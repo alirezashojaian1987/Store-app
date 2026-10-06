@@ -7,6 +7,7 @@ import type { Product } from "../../types/product"
 import RatingStars from "../../Components/RatingStars"
 import QuantitySelector from "../../Components/QuantitySelector"
 import ProductGallery from "../../Components/ProductGallery"
+import ReviewsSection from "../../Components/Review/ReviewsSection"
 
 import styles from "./ProductDetail.module.scss";
 
@@ -134,6 +135,8 @@ export default function ProductDetail(){
                         </span>
                     </div>
                 </div>
+                
+                <ReviewsSection reviews={product.reviews} />
             </div>
         </section>
     );
