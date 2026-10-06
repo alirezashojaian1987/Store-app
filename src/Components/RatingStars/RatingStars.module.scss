@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+
+.wrapper{
+    position:relative;
+    display: inline-block;
+    line-height: 0;
+    vertical-align: middle;
+
+    .empty, .filled{
+        display: flex;
+        gap:2px;
+    }
+
+    .empty{
+        color:$border-strong;
+
+        svg{
+            fill:$border-strong;
+            flex-shrink: 0;
+        }
+    }
+
+    .filled{
+        position:absolute;
+        top:0;
+        left:0;
+        color:$warning;
+        overflow: hidden;
+
+        svg{
+            fill:$warning;
+            flex-shrink: 0;
+        }
+    }
+}
