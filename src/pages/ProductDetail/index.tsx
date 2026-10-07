@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
-import { ChevronRight, ShoppingCart } from "lucide-react"
-import { formatCategory } from "../../utils/formatCategory"
-import { getProductById } from "../../api/api"
-import type { Product } from "../../types/product"
+import { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
+import { ChevronRight, ShoppingCart } from "lucide-react";
+import { formatCategory } from "../../utils/formatCategory";
+import { getProductById } from "../../api/api";
+import type { Product } from "../../types/product";
 
-import RatingStars from "../../Components/RatingStars"
-import QuantitySelector from "../../Components/QuantitySelector"
-import ProductGallery from "../../Components/ProductGallery"
-import ReviewsSection from "../../Components/Review/ReviewsSection"
+import RatingStars from "../../Components/RatingStars";
+import QuantitySelector from "../../Components/QuantitySelector";
+import ProductGallery from "../../Components/ProductGallery";
+import ReviewsSection from "../../Components/Review/ReviewsSection";
 
 import styles from "./ProductDetail.module.scss";
+
+import { useCart } from "../../Context/CartContext";
 
 export default function ProductDetail(){
     const { id }=useParams<{id:string}>();
@@ -40,14 +42,10 @@ export default function ProductDetail(){
         loadProduct();
     }, [id]);
 
+    const { addToCart }=useCart();
+
     function handleAddToCart(p:Product){
-        console.log("Add to cart:",{
-            id:p.id,
-            title:p.title,
-            quantity,
-            unitPrice:p.price,
-            total:Number((p.price*quantity).toFixed(2)),
-        });
+        addToCart(p, quantity);
     }
 
     if(loading){

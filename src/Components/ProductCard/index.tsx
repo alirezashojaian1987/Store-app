@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
 import type { Product } from "../../types/product";
 
-import { ShoppingCart, Star } from "lucide-react";
 import styles from "./productCard.module.scss";
+import { Check, ShoppingCart, Star } from "lucide-react";
+
+import { useEffect, useState } from "react";
+import { useCart } from "../../Context/CartContext";
 
 interface ProductCardProps{
     product:Product;
@@ -11,8 +14,18 @@ interface ProductCardProps{
 export default function ProductCard({ product }: ProductCardProps){
     const { id, title, price, category, thumbnail, rating, reviews }=product;
 
+    const { addToCart }=useCart();
+    const [added, setAdded]=useState(false);
+
+    useEffect(()=>{
+        if(!added) return;
+        const t=setTimeout(()=>setAdded(false), 1200);
+        return()=>clearTimeout(t);
+    }, [added]);
+
     function handleAddToCart(){
-        console.log("Add to cart:", {id,title,price});
+        addToCart(product,1);
+        setAdded(true);
     }
 
     return(
@@ -44,12 +57,12 @@ export default function ProductCard({ product }: ProductCardProps){
                     <span className={styles.price}>${price.toFixed(2)}</span>
                     <button
                         type="button"
-                        className={styles.addBtn}
+                        className={`${styles.addBtn} ${added ? styles.added : ""}`}
                         onClick={handleAddToCart}
                         aria-label={`Add ${title} to cart`}
                     >
-                        <ShoppingCart size={16}/>
-                        <span>Add</span>
+                        {added ? <Check size={16}/> : <ShoppingCart size={16}/>}
+                        <span>{added ? 'Added' : 'Add'}</span>
                     </button>
                 </div>
             </div>

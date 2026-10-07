@@ -130,6 +130,11 @@
     cursor: pointer;
     transition:background-color 0.15s ease;
 
+    &.added{
+        background-color: $primary-darker;
+        cursor: default;
+    }
+
     &:hover{
         background-color: $primary-dark;
     }
