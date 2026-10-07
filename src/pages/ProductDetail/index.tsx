@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
-import { ChevronLeft, ShoppingCart } from "lucide-react"
+import { ChevronRight, ShoppingCart } from "lucide-react"
+import { formatCategory } from "../../utils/formatCategory"
 import { getProductById } from "../../api/api"
 import type { Product } from "../../types/product"
 
@@ -75,10 +76,26 @@ export default function ProductDetail(){
     return(
         <section className={styles.detail}>
             <div className={styles.inner}>
-                <NavLink to="/" className={styles.backLink}>
-                    <ChevronLeft size={16}/>
-                    Back to shop
-                </NavLink>
+                <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+                    <NavLink to="/" className={styles.bcLink}>
+                        Shop
+                    </NavLink>
+
+                    <ChevronRight size={14} className={styles.bcSep} aria-hidden="true"/>
+
+                    <NavLink
+                        to={`/category/${encodeURIComponent(product.category)}`}
+                        className={styles.bcLink}
+                    >
+                        {formatCategory(product.category)}
+                    </NavLink>
+
+                    <ChevronRight/>
+
+                    <span className={styles.bcCurrent} aria-current="page">
+                        {product.title}
+                    </span>
+                </nav>
 
                 <div className={styles.hero}>
                     <ProductGallery images={product.images} title={product.title}/>

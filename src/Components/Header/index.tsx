@@ -5,6 +5,7 @@ import { getCategories } from "../../api/api";
 //styles
 import styles from "./Header.module.scss";
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
+import { formatCategory } from "../../utils/formatCategory";
 
 export default function Header(){
     const [categories, setCategories]=useState<string[]>([]);
@@ -15,13 +16,6 @@ export default function Header(){
     const [mobileOpen, setMobileOpen]=useState(false);
 
     const dropdownRef=useRef<HTMLDivElement>(null);
-
-    function formatCategory(cat:string):string{
-        return cat
-            .replace(/^mens-/, "men's ")
-            .replace(/^womens-/, "women's ")
-            .replace(/-/g, ' ');
-    }
 
     useEffect(()=>{
         let cancelled=false;
