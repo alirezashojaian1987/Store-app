@@ -7,6 +7,8 @@ import styles from "./Header.module.scss";
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { formatCategory } from "../../utils/formatCategory";
 
+import { useCart } from "../../Context/CartContext";
+
 export default function Header(){
     const [categories, setCategories]=useState<string[]>([]);
     const [loadingCats, setLoadingCats]=useState(true);
@@ -50,6 +52,8 @@ export default function Header(){
         setDropdownOpen(false);
         setMobileOpen(false);
     }
+
+    const { totalItems }=useCart();
 
     return(
         <header className={styles.header} id="header">
@@ -112,10 +116,15 @@ export default function Header(){
                     <NavLink
                         to="/cart"
                         className={styles.iconBtn}
-                        aria-label="Cart"
+                        aria-label={`Cart (${totalItems} item${totalItems===1 ? '' : 's'})`}
                         onClick={closeAll}
                     >
                         <ShoppingCart size={22}/>
+                        {totalItems > 0 && (
+                            <span className={styles.badge}>
+                                {totalItems > 99 ? '99+' : totalItems}
+                            </span>
+                        )}
                     </NavLink>
 
                     <button
